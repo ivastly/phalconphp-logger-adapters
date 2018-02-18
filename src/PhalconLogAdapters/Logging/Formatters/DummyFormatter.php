@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Logging\Formatters;
+namespace PhalconLogAdapters\Logging\Formatters;
 
 use Phalcon\Logger\Formatter;
 use Phalcon\Logger\FormatterInterface;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Logging\Adapters;
+namespace PhalconLogAdapters\Logging\Adapters;
 
-use App\Services\External\LogglyClient;
+use PhalconLogAdapters\Services\External\LogglyClient;
 use Phalcon\Logger;
 
 class LogglyAdapter extends AbstractAdapter

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Logging\Adapters;
+namespace PhalconLogAdapters\Logging\Adapters;
 
-use App\Logging\Formatters\DummyFormatter;
+use PhalconLogAdapters\Logging\Formatters\DummyFormatter;
 use Phalcon\Logger;
 use Phalcon\Logger\Adapter;
 use Phalcon\Logger\AdapterInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\External;
+namespace PhalconLogAdapters\Services\External;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;

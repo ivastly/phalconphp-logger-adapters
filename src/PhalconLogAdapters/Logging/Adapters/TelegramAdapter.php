@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Logging\Adapters;
+namespace PhalconLogAdapters\Logging\Adapters;
 
-use App\Services\External\TelegramClient;
+use PhalconLogAdapters\Services\External\TelegramClient;
 use Phalcon\Logger;
 
 class TelegramAdapter extends AbstractAdapter
