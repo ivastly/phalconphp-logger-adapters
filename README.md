@@ -1,9 +1,14 @@
-# phalconphp-logger-adapters
 ![wtfpl](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png)
+# phalconphp-logger-adapters
+
 This repo contains a canonical demo implementation of an Adapter for standard logger of PhalconPHP framework. 
-Consider it more like a Proof Of Concept, than a production-ready code. Contributions are more than welcome (see ![CONTRIBUTE.md](link)) 
+Consider it more like a Proof Of Concept, than a production-ready code. Contributions are more than welcome (see ![CONTRIBUTE.md](CONTRIBUTE.md)) 
 
 Tested with PhalconPHP version 3.2.4
+
+# Requirements
+* php >= 7.0
+* phalconPHP >= 3.2.4
 
 # How to use
 Just install via composer
@@ -28,4 +33,4 @@ $di->setShared('logger', function() use($config) {
 * [Loggly](http://logg.ly) Loggly logger adapter for PhalconPHP
 
 # LICENSE information
-see ![LICENSE.md](link)
+see ![LICENSE.md](LICENSE.md)
