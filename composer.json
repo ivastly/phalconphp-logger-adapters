@@ -1,6 +1,7 @@
 {
     "name": "biganfa/phalconphp-logger-adapters",
     "description": "Miscellaneous Adapters For PhalconPHP standard logger",
+    "keywords": ["phalcon", "phalconphp", "logger", "adapter", "loggy", "telegram"],
     "license": "WTFPL",
     "require": {
         "php": ">=7.0",
