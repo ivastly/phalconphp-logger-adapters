@@ -13,7 +13,7 @@ Tested with PhalconPHP version 3.2.4
 # How to use
 Just install via composer
 ```bash
-composer require biganfa/phalconphp-logger-adapters
+composer require biganfa/phalconphp-logger-adapters:^1.0
 ```
 
 And configure your Phalcon's built-in logger appropriately
