@@ -1,14 +1,16 @@
 # How to contribute?
 
 PRs with new Adapters for PhalconPHP Logger is more than welcome!
-Just fork and make a PR to master branch.
+Just fork the repo, inherit your new Adapter from _AbstractAdapter_ 
+and make a PR to master branch.
 
 ### Some ideas for PhalconPHP logger adapters:
+* [sentry](https://sentry.io) adapter
 * [datadog](https://www.datadoghq.com/) adapter
 * FluentD adapter
 * Elasticsearch adapter
 * Nagios adapter
-* JIRA adapter
+* Slack adapter
 * etc.
 
 ### Other contributions

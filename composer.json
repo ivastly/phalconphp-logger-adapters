@@ -1,0 +1,14 @@
+{
+    "name": "biganfa/phalconphp-logger-adapters",
+    "description": "Miscellaneous Adapters For PhalconPHP standard logger",
+    "license": "WTFPL",
+    "require": {
+        "php": ">=7.0",
+        "ext-phalcon": "*",
+        "guzzlehttp/guzzle": "~6.0",
+        "eleirbag89/telegrambotphp": "^1.3"
+    },
+    "require-dev": {
+        "phalcon/ide-stubs": "*"
+    }
+}
