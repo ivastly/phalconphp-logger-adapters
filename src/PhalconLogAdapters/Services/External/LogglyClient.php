@@ -37,7 +37,6 @@ class LogglyClient
                                                    'json' => [
                                                        'data'    => $data,
                                                        'host'    => $this->host,
-                                                       'server'  => $_SERVER,
                                                        'request' => $_REQUEST,
                                                    ],
                                                ]
