@@ -1,5 +1,4 @@
 /vendor/*
 .idea/
-composer.lock
 test.php
 composer.phar
