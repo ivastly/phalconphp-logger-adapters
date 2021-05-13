@@ -1,48 +1,62 @@
 <?php
 
+declare(strict_types=1);
+
 namespace PhalconLogAdapters\Services\External;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\GuzzleException;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 class LogglyClient
 {
-    /** @var ClientInterface */
-    private $client;
+	public const BASE_URI = 'http://logs-01.loggly.com';
 
-    private $host;
+	/** @var ClientInterface */
+	private $client;
 
-    /** @var string */
-    private $apiKey;
+	/** @var RequestFactoryInterface */
+	private $requestFactory;
 
-    public function __construct(string $apiKey)
-    {
-        $this->apiKey = $apiKey;
+	/** @var StreamFactoryInterface */
+	private $streamFactory;
 
-        $this->client = new Client([
-                                       'base_uri' => 'http://logs-01.loggly.com',
-                                       'timeout'  => 5, // small timeout for non-critical loggly processing
-                                   ]
-        );
+	private $host;
 
-        $this->host = gethostname();
-    }
+	/** @var string */
+	private $apiKey;
 
-    public function loggly(string $tag, array $data)
-    {
-        try {
-            $response = $this->client->request('POST',
-                                               "/inputs/{$this->apiKey}/tag/$tag", [
-                                                   'json' => [
-                                                       'data'    => $data,
-                                                       'host'    => $this->host,
-                                                       'request' => $_REQUEST,
-                                                   ],
-                                               ]
-            );
-        } catch (GuzzleException $e) {
-            // ignore guzzle errors here
-        }
-    }
+	public function __construct(
+		string $apiKey,
+		ClientInterface $client,
+		RequestFactoryInterface $requestFactory,
+		StreamFactoryInterface $streamFactory
+	) {
+		$this->apiKey         = $apiKey;
+		$this->host           = gethostname();
+		$this->client         = $client;
+		$this->requestFactory = $requestFactory;
+		$this->streamFactory  = $streamFactory;
+	}
+
+	public function loggly(string $tag, array $data): void
+	{
+		$request = $this->requestFactory->createRequest(
+			'POST',
+			"/inputs/{$this->apiKey}/tag/$tag"
+		)->withHeader('Content-Type', 'application/json')
+			->withBody(
+				$this->streamFactory->createStream(
+					json_encode(
+						[
+							'data'    => $data,
+							'host'    => $this->host,
+							'request' => $_REQUEST,
+						]
+					)
+				)
+			);
+
+		$this->client->sendRequest($request);
+	}
 }

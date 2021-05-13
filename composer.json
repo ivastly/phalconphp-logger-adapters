@@ -17,13 +17,17 @@
     }
   ],
   "require": {
-    "php": ">=7.0",
+    "php": ">=7.1",
     "ext-phalcon": "*",
-    "guzzlehttp/guzzle": "~6.0",
-    "eleirbag89/telegrambotphp": "1.3.10"
+    "psr/http-client": "^1.0",
+    "psr/http-factory": "^1.0",
+    "eleirbag89/telegrambotphp": "1.3.10",
+    "ext-json": "*"
   },
   "require-dev": {
-    "phalcon/ide-stubs": "*"
+    "phalcon/ide-stubs": "*",
+    "guzzlehttp/guzzle": "^7.3",
+    "http-interop/http-factory-guzzle": "^1.0"
   },
   "autoload": {
     "psr-4": {
